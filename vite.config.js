@@ -5,6 +5,9 @@ import aliases from './config/aliases'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
+    esbuild: {
+        jsxInject: `import React from 'react'`
+    },
     resolve: {
         alias: aliases,
     }
