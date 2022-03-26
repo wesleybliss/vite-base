@@ -6,6 +6,7 @@
 A minimal React starter kit, including:
 
 - Vite for faster builds
+- Normal `process.env` vars (no need for `VITE_` prefix)
 - React Router v6
 - Tailwind CSS
 - PostCSS with some typical plugins
