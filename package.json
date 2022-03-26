@@ -17,6 +17,7 @@
     "autoprefixer": "^10.4.0",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.0",
+    "dotenv": "^16.0.0",
     "postcss": "^8.4.5",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^14.0.2",

@@ -26,7 +26,7 @@ const Home = () => {
                     <div className="Home-header-circle-inner absolute-centered" />
                 </div>
                 <div className="Home-header-branding absolute-centered font-AlexBrush">
-                    Vite Base
+                    {process.env.APP_TITLE || 'Vite Base'}
                 </div>
             </h1>
             
