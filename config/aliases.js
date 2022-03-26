@@ -9,11 +9,11 @@ const aliases = [
     'lib',
     'store',
     'actions',
+    'effects',
     'routes',
     'components',
     'constants',
     'assets',
-    'effects',
     'workers',
     'messages',
 ].reduce((acc, it) => ({

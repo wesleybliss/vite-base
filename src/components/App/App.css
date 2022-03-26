@@ -4,7 +4,17 @@
     @apply relative w-screen min-h-screen overflow-y-auto;
     @apply flex flex-col bg-gray-100;
     
-    background-image: linear-gradient(90deg, #f2f2f5 25%, #ebebef 25%, #ebebef 50%, #f2f2f5 50%, #f2f2f5 75%, #ebebef 75%, #ebebef 100%);
+    background-image: linear-gradient(
+        90deg,
+        #f2f2f5 25%,
+        #ebebef 25%,
+        #ebebef 50%,
+        #f2f2f5 50%,
+        #f2f2f5 75%,
+        #ebebef 75%,
+        #ebebef 100%
+    );
+    
     background-size: 160.00px 160.00px;
     
     article {
@@ -13,4 +23,16 @@
         @apply text-center;
     }
     
+}
+
+.dark .App {
+    background-image: linear-gradient(90deg,
+        #0d0d0a 25%,
+        #141410 25%,
+        #141410 50%,
+        #0d0d0a 50%,
+        #0d0d0a 75%,
+        #141410 75%,
+        #141410 100%
+    );
 }

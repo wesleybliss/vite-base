@@ -1,0 +1,32 @@
+
+.Home {
+    
+    @apply w-full flex flex-col items-center;
+    @apply text-gray-200 dark:text-gray-800;
+    
+    .Home-header {
+        @apply relative w-96 h-52;
+        @apply flex justify-center items-center content-center;
+    }
+    
+    .Home-header-circle {
+        
+        @apply w-40 h-40 relative;
+        @apply bg-gray-300 dark:bg-gray-600;
+        @apply rounded-full opacity-40;
+        
+        & > .Home-header-circle-inner {
+            @apply w-[90%] h-[90%];
+            @apply bg-gray-200 dark:bg-gray-700;
+            @apply rounded-full;
+        }
+        
+    }
+    
+    .Home-header-branding {
+        @apply w-full;
+        @apply text-6xl text-gray-700 dark:text-gray-300;
+    }
+    
+}
+    
