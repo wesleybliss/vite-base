@@ -60,8 +60,10 @@ write(paths.sampleEnv, sampleEnv)
 
 fs.copyFileSync(paths.sampleEnv, paths.env)
 
-fs.unlinkSync(root('.git'))
-execSync('git init')
+if (fs.existsSync(root('.git'))) {
+    fs.unlinkSync(root('.git'))
+    execSync('git init')
+}
 
 console.info('Updated files & reset Git. Deleting this script')
 
