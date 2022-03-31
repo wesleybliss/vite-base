@@ -50,13 +50,15 @@ const pkg = read(paths.pkg).replace('vite-base', slug)
 const html = read(paths.html).replace('Vite Base', name)
 const readme = read(paths.readme).replace('vite-base', slug)
 const app = read(paths.app).replace('Vite Base', name)
-const env = read(paths.env).replace('Vite Base', name)
 const sampleEnv = read(paths.sampleEnv).replace('Vite Base', name)
 
 write(paths.pkg, pkg)
 write(paths.html, html)
 write(paths.readme, readme)
 write(paths.app, app)
+write(paths.sampleEnv, sampleEnv)
+
+fs.copyFileSync(paths.sampleEnv, paths.env)
 
 fs.unlinkSync(root('.git'))
 execSync('git init')
