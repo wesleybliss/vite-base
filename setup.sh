@@ -61,7 +61,7 @@ write(paths.sampleEnv, sampleEnv)
 fs.copyFileSync(paths.sampleEnv, paths.env)
 
 if (fs.existsSync(root('.git'))) {
-    fs.unlinkSync(root('.git'))
+    fs.rmSync(root('.git'), { recursive: true })
     execSync('git init')
 }
 
