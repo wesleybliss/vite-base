@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { execSync } = require('child_process')
 
 const usage = `
 USAGE ./${path.basename(process.argv[1])} <slug> <name>
@@ -41,18 +42,25 @@ const paths = {
     html: root('index.html'),
     readme: root('README.md'),
     app: root('src/components/App/App.jsx'),
+    env: root('.env'),
+    sampleEnv: root('sample.env'),
 }
 
 const pkg = read(paths.pkg).replace('vite-base', slug)
 const html = read(paths.html).replace('Vite Base', name)
 const readme = read(paths.readme).replace('vite-base', slug)
 const app = read(paths.app).replace('Vite Base', name)
+const env = read(paths.env).replace('Vite Base', name)
+const sampleEnv = read(paths.sampleEnv).replace('Vite Base', name)
 
 write(paths.pkg, pkg)
 write(paths.html, html)
 write(paths.readme, readme)
 write(paths.app, app)
 
-console.info('Updated files, deleting this script')
+fs.unlinkSync(root('.git'))
+execSync('git init')
+
+console.info('Updated files & reset Git. Deleting this script')
 
 fs.unlinkSync(paths.me)
