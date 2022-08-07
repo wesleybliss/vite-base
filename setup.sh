@@ -50,15 +50,16 @@ const paths = [
     'README.md',
     'src/constants.js',
     'src/components/App/App.jsx',
-    'src/routes/Home.jsx',
-    '.env',
+    'src/routes/Home/Home.jsx',
     'sample.env',
-].map(root)
+].map(it => root(it))
 
 paths.forEach(replace)
 
 console.info('- Creating .env file')
-fs.copyFileSync(paths.sampleEnv, paths.env)
+const envFile = root('.env')
+const sampleEnvFile = paths.find(it => it.includes('sample.env'))
+fs.copyFileSync(sampleEnvFile, envFile)
 
 console.info('- Updating files & resetting Git')
 if (fs.existsSync(root('.git'))) {
@@ -66,5 +67,5 @@ if (fs.existsSync(root('.git'))) {
     execSync('git init')
 }
 
-console.info('- Deleting this script')
-fs.unlinkSync(root('setup.sh'))
+// console.info('- Deleting this script')
+// fs.unlinkSync(root('setup.sh'))
