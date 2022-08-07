@@ -67,5 +67,5 @@ if (fs.existsSync(root('.git'))) {
     execSync('git init')
 }
 
-// console.info('- Deleting this script')
-// fs.unlinkSync(root('setup.sh'))
+console.info('- Deleting this script')
+fs.unlinkSync(root('setup.sh'))
