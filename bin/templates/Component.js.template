@@ -1,0 +1,24 @@
+import { useRef, useState, useEffect } from 'react'
+import { useWireValue } from '@forminator/react-wire'
+import * as store from '@store'
+import cn from 'classnames'
+
+import './%%NAME%%.css'
+
+const %%NAME%% = ({
+    className,
+}) => {
+    
+    return (
+        
+        <div className={cn('%%NAME%%', { [className]: className })}>
+            
+            @todo
+            
+        </div>
+        
+    )
+    
+}
+
+export default %%NAME%%

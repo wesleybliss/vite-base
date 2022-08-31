@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "create:route": "./bin/create-component route",
+    "create:component": "./bin/create-component component"
   },
   "dependencies": {
     "react": "^18.2.0",

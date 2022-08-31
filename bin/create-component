@@ -1,0 +1,84 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const path = require('path')
+
+const args = process.argv.slice(2)
+
+const ext = `.jsx`
+const [type, name] = args
+const TYPES = {
+    route: path.resolve(__dirname, '../src/routes'),
+    component: path.resolve(__dirname, '../src/components'),
+}
+
+const showUsage = (...messages) => {
+    if (messages.length) console.error(...messages)
+    console.info(`\nUSAGE: ${process.argv[1]} <type> <name>\n`)
+    process.exit(1)
+}
+
+if (!type || !type.length || !Object.keys(TYPES).includes(type))
+    showUsage(`Invalid type "${type}" - must be one of`, JSON.stringify(Object.keys(TYPES)))
+
+if (!name || !name.length)
+    showUsage(`Invalid name "${name}"`)
+
+const titleCase = str => str.substring(0, 1).toUpperCase() + str.substring(1)
+
+const readTemplate = name => {
+    const filePath = path.resolve(__dirname, 'templates', `${name}.template`)
+    return fs.readFileSync(filePath, 'utf8')
+}
+
+const styleTemplate = readTemplate('Styles.css')
+const indexTemplate = readTemplate('index.js')
+const componentTemplateFor = type => readTemplate(`${type}.js`)
+
+const createFromTemplate = async (type, name) => {
+    
+    console.info(`Create a new ${type}`)
+    
+    const Type = titleCase(type)
+    const target = path.join(TYPES[type], name)
+    
+    if (fs.existsSync(target)) {
+        console.warn(`${Type} named "${name}" already exists`)
+        return process.exit(2)
+    }
+    
+    const styleFile = path.join(target, `${name}.css`)
+    const indexFile = path.join(target, `index.js`)
+    const componentFile = path.join(target, `${name}${ext}`)
+    
+    const styleData = styleTemplate.replace(/%%NAME%%/g, name)
+    const indexData = indexTemplate.replace(/%%NAME%%/g, name)
+    const componentData = componentTemplateFor(Type).replace(/%%NAME%%/g, name)
+    
+    console.info(`Creating ${type} "${name}"...`)
+    
+    /* return console.log({
+        __dirname,
+        type,
+        name,
+        target,
+        styleFile,
+        indexFile,
+        componentFile,
+        styleData,
+        indexData,
+        componentData,
+    }) */
+    
+    if (!fs.existsSync(target))
+        fs.mkdirSync(target)
+    
+    fs.writeFileSync(styleFile, styleData, 'utf8')
+    fs.writeFileSync(indexFile, indexData, 'utf8')
+    fs.writeFileSync(componentFile, componentData, 'utf8')
+    
+    console.info(`${Type} "${name}" added`)
+    
+}
+
+createFromTemplate(type, name)
