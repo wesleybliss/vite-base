@@ -1,21 +1,15 @@
-import { useRef, useState, useEffect } from 'react'
-import { useWireValue } from '@forminator/react-wire'
-import * as store from '@store'
 import cn from 'classnames'
-
-import './Button.css'
 
 const Button = ({
     className,
+    children,
 }) => {
     
     return (
         
-        <div className={cn('Button', { [className]: className })}>
-            
-            @todo
-            
-        </div>
+        <button className={cn('btn', { [className]: className })}>
+            {children}
+        </button>
         
     )
     

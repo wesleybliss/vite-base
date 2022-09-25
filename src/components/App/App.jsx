@@ -11,6 +11,7 @@ import Home from '@routes/Home'
 import Auth from '@routes/Auth'
 import SignOut from '@routes/SignOut'
 import Profile from '@routes/Profile'
+import Projects from '@routes/Projects'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './App.css'
@@ -40,6 +41,7 @@ const Content = () => (
             <Route exact path="/signout" element={<SignOut />} />
             
             {protectRoute('/profile', Profile)}
+            {protectRoute('/projects', Projects)}
             
         </Routes>
         

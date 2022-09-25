@@ -18,6 +18,7 @@ export const useDrawer = true
 export const primaryMenuItems = [
     { label: 'HOME', to: '/' },
     { label: 'ABOUT', to: '/about' },
+    { label: 'PROJECTS', to: '/projects' },
 ]
 
 export const primaryMenuItemsBottom = [

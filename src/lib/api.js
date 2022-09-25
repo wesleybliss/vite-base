@@ -58,7 +58,11 @@ api.get = async (path, options = {}) => {
     
     if (!res.ok) return getError(res)
     
-    return await res.json()
+    const result = res.ok
+        ? await getData(res)
+        : await getError(res)
+    
+    return result
     
 }
 
