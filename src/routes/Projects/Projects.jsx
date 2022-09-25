@@ -1,21 +1,67 @@
-import { useState, useEffect } from 'react'
-import { useWireValue } from '@forminator/react-wire'
+import { useState, useEffect, useMemo } from 'react'
+import { useWire, useWireValue } from '@forminator/react-wire'
 import * as store from '@store'
 import * as actions from '@actions'
+import { formatDate } from '@lib/utils'
 import cn from 'classnames'
 
 import Button from '@components/Button'
 import SimpleTable from '@components/SimpleTable'
+import { NewProjectDialog, DeleteProjectDialog } from '@components/Dialogs'
+import { FaTrash } from 'react-icons/fa'
 
 import './Projects.css'
 
 const Projects = () => {
     
-    const projects = useWireValue(store.projects)
+    const [markedDeleteProject, setMarkedDeleteProject] = useState(null)
     
-    const onCreateProjectClick = () => {
+    const projects = useWireValue(store.projects)
+    const newProjectDialogOpen = useWire(store.newProjectDialogOpen)
+    const deleteProjectDialogOpen = useWire(store.deleteProjectDialogOpen)
+    
+    const createProject = async name => {
+        
+        const res = await actions.createProject(name)
+        
+        if (res.error)
+            console.error('createProject', res.error)
+        
+        newProjectDialogOpen.setValue(false)
         
     }
+    
+    const deleteProject = async () => {
+        
+        if (!markedDeleteProject) return
+        
+        const res = await actions.deleteProject(markedDeleteProject.id)
+        
+        if (res.error)
+            console.error('deleteProject', res.error)
+        
+        deleteProjectDialogOpen.setValue(false)
+        
+    }
+    
+    const projectsWithActions = useMemo(() => {
+        if (!projects) return []
+        return projects?.map(it => ({
+            ...it,
+            actions: (
+                <div className="text-right">
+                    <Button
+                        className="btn-square btn-ghost"
+                        onClick={() => {
+                            setMarkedDeleteProject(it)
+                            deleteProjectDialogOpen.setValue(true)
+                        }}>
+                        <FaTrash className="text-red-700" />
+                    </Button>
+                </div>
+            )
+        }))
+    })
     
     useEffect(() => {
         actions.fetchProjects()
@@ -30,7 +76,7 @@ const Projects = () => {
                 <div>
                     <Button
                         className=""
-                        onClick={onCreateProjectClick}>
+                        onClick={() => newProjectDialogOpen.setValue(true)}>
                         NEW
                     </Button>
                 </div>
@@ -41,10 +87,18 @@ const Projects = () => {
                 keys={[
                     { slug: 'id', label: 'ID', },
                     { slug: 'name', label: 'Name', },
-                    { slug: 'created', label: 'Created', },
-                    { slug: 'updated', label: 'Updated', },
+                    { slug: 'created_at', label: 'Created', },
+                    { slug: 'updated_at', label: 'Updated', },
+                    { slug: 'actions', label: '', },
                 ]}
-                items={projects ?? []} />
+                items={projectsWithActions}
+                transforms={{
+                    'created_at': it => formatDate(it, { unix: true }),
+                    'updated_at': it => formatDate(it, { unix: true }),
+                }} />
+            
+            <NewProjectDialog onAction={createProject} />
+            <DeleteProjectDialog project={markedDeleteProject} onAction={deleteProject} />
             
         </div>
         

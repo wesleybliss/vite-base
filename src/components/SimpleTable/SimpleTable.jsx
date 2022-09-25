@@ -5,11 +5,18 @@ const SimpleTable = ({
     className,
     keys,
     items,
+    transforms,
 }) => {
     
     const id = useMemo(() => {
         return Math.round(Date.now() * Math.random())
     }, [])
+    
+    const transformValue = (slug, val) => {
+        if (transforms && transforms[slug])
+            return transforms[slug](val)
+        return val
+    }
     
     return (
         
@@ -28,7 +35,7 @@ const SimpleTable = ({
                     <tr key={`${id}-${it.id}`}>
                         {keys.map(({ slug }) => (
                             <td key={`${id}-${it.id}-${slug}`}>
-                                {it[slug]}
+                                {transformValue(slug, it[slug])}
                             </td>
                         ))}
                     </tr>

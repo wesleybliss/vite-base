@@ -1,3 +1,6 @@
+import dayjs from 'dayjs'
+
+export const defaultDateFormat = 'MMM DD, YYYY'
 
 /**
  * NOOP empty function placeholder
@@ -65,4 +68,16 @@ export const copyToClipboard = async (data) => {
     } catch (e) {
         console.error(e)
     }
+}
+
+export const formatDate = (value, options) => {
+    
+    const opts = {
+        format: defaultDateFormat,
+        ...options,
+    }
+    
+    const date = opts.unix ? dayjs.unix(value) : dayjs(value)
+    
+    return date.format(opts.format)
 }

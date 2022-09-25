@@ -48,7 +48,7 @@ const getData = async res => {
     
     const json = await res.json()
     
-    return json.data
+    return json.data || json
     
 }
 
@@ -71,7 +71,38 @@ api.post = async (path, data = {}, options = {}) => {
     const res = await fetch(url(path), getOptions({
         method: 'POST',
         body: typeof data === 'string' ? data : JSON.stringify(data),
-        ...options
+        ...options,
+    }))
+    
+    const result = res.ok
+        ? await getData(res)
+        : await getError(res)
+    
+    return result
+    
+}
+
+api.put = async (path, data = {}, options = {}) => {
+    
+    const res = await fetch(url(path), getOptions({
+        method: 'PUT',
+        body: typeof data === 'string' ? data : JSON.stringify(data),
+        ...options,
+    }))
+    
+    const result = res.ok
+        ? await getData(res)
+        : await getError(res)
+    
+    return result
+    
+}
+
+api.delete = async (path, options = {}) => {
+    
+    const res = await fetch(url(path), getOptions({
+        method: 'DELETE',
+        ...options,
     }))
     
     const result = res.ok

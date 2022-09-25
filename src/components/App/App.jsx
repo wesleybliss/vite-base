@@ -12,6 +12,7 @@ import Auth from '@routes/Auth'
 import SignOut from '@routes/SignOut'
 import Profile from '@routes/Profile'
 import Projects from '@routes/Projects'
+import * as dialogs from '@components/Dialogs'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './App.css'
@@ -76,6 +77,11 @@ const App = () => {
                 ) : (
                     <Content />
                 )}
+                
+                {/* {Object.keys(dialogs).map(it => {
+                    const Component = dialogs[it]
+                    return <Component key={`dialog-${it}`} />
+                })} */}
                 
             </div>
             
