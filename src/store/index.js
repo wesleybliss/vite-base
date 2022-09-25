@@ -2,8 +2,12 @@ import { createWire, createSelector } from '@forminator/react-wire'
 import { createPersistedWire } from 'react-wire-persisted'
 import { keys } from '@constants'
 
-export const counter = createWire(0)
+export const theme = createPersistedWire(keys.theme, 'business')
+export const drawerOpen = createWire(false)
 
-export const persistedCounter = createPersistedWire(keys.persistedCounter, 0)
+export const authInputEmail = createWire('')
+export const authInputPassword = createWire('')
 
-export const theme = createPersistedWire(keys.theme, 'light')
+//
+
+export * from './user'

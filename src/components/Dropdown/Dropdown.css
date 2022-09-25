@@ -1,0 +1,12 @@
+
+.Dropdown {
+    
+    .label {
+        @apply btn m-1;
+    }
+    
+    .items {
+        @apply w-52 mt-4 p-2 bg-base-100 rounded-box shadow;
+    }
+    
+}

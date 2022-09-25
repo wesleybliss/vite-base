@@ -1,0 +1,6 @@
+
+.TextInput {
+    
+    @apply input input-bordered w-full rounded;
+    
+}

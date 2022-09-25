@@ -9,26 +9,28 @@
     "create:component": "./bin/create-component component"
   },
   "dependencies": {
+    "daisyui": "^2.31.0",
+    "md5": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "6.3.0"
+    "react-router-dom": "6.4.0"
   },
   "devDependencies": {
-    "@forminator/react-wire": "^0.5.0",
-    "@vitejs/plugin-react": "^2.0.0",
-    "autoprefixer": "^10.4.8",
-    "classnames": "^2.3.1",
-    "dayjs": "^1.11.4",
-    "dotenv": "^16.0.1",
+    "@forminator/react-wire": "^0.6.0",
+    "@vitejs/plugin-react": "^2.1.0",
+    "autoprefixer": "^10.4.11",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.5",
+    "dotenv": "^16.0.2",
     "postcss": "^8.4.16",
     "postcss-extend": "^1.0.5",
-    "postcss-import": "^14.1.0",
+    "postcss-import": "^15.0.0",
     "postcss-url": "^10.1.3",
     "prop-types": "^15.8.1",
     "react-icons": "^4.4.0",
     "react-wire-persisted": "^1.2.0",
     "tailwindcss": "^3.1.8",
-    "vite": "^3.0.4",
+    "vite": "^3.1.2",
     "vite-plugin-svgr": "^2.2.1"
   }
 }

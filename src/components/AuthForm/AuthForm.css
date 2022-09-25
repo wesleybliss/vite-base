@@ -1,0 +1,10 @@
+
+.AuthForm {
+    
+    @apply w-full flex flex-col;
+    
+    form {
+        @apply w-full flex flex-col;
+    }
+    
+}

@@ -1,14 +1,32 @@
-import cn from 'classnames'
+import { useMemo } from 'react'
+import { useWireState, useWireValue } from '@forminator/react-wire'
+import * as store from '@store'
+import { primaryMenuItems, useDrawer } from '@constants'
 
 import { Link } from 'react-router-dom'
 import NavLink from './NavLink'
+import AccountLink from './AccountLink'
+import Dropdown from '@components/Dropdown'
 import ThemeToggle from '@components/ThemeToggle'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 import './Navbar.css'
 
 const Navbar = ({
     
 }) => {
+    
+    const isAuthenticated = useWireValue(store.isAuthenticated)
+    const [drawerOpen, setDrawerOpen] = useWireState(store.drawerOpen)
+    
+    const onDrawerToggleClick = e => {
+        e.preventDefault()
+        setDrawerOpen(!drawerOpen)
+    }
+    
+    const DrawerToggleIcon = useMemo(() => {
+        return drawerOpen ? FaTimes : FaBars
+    }, [drawerOpen])
     
     return (
         
@@ -24,16 +42,30 @@ const Navbar = ({
             
             <div className="flex items-center content-center">
                 
-                <NavLink to="/">HOME</NavLink>
-                <NavLink to="/">ABOUT</NavLink>
-                <NavLink to="/">NEWS</NavLink>
-                <NavLink to="/">CONTACT</NavLink>
-                <NavLink to="/">HELP</NavLink>
+                {primaryMenuItems.map(({ label, to }) => (
+                    <NavLink key={to} to={to}>{label}</NavLink>
+                ))}
                 
-                <ThemeToggle className={cn(
-                    'flex justify-center items-center content-center',
-                    'mx-3 px-1 pt-2 text-3xl font-bold',
-                )} />
+                {useDrawer ? <AccountLink /> : (
+                    <Dropdown
+                        className="dropdown-end"
+                        labelClassName=""
+                        label={<AccountLink onClick={e => e.preventDefault()} />}
+                        items={[
+                            ...primaryMenuItems.map(({ label, to }) => (
+                                <Link key={to} to={to}>{label}</Link>
+                            )),
+                            <Link to="/signout">SIGN OUT</Link>
+                        ]} />
+                )}
+                
+                {useDrawer && (
+                    <NavLink to={'/'} onClick={onDrawerToggleClick}>
+                        <DrawerToggleIcon className="text-2xl" />
+                    </NavLink>
+                )}
+                
+                {!useDrawer && <ThemeToggle />}
                 
             </div>
             

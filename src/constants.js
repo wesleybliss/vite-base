@@ -8,11 +8,21 @@ export const NS = `react-base`
 
 key('theme')
 
-key('persistedCounter')
+key('user')
 
 //
 
 export const themes = ['light', 'dark']
+export const useDrawer = true
+
+export const primaryMenuItems = [
+    { label: 'HOME', to: '/' },
+    { label: 'ABOUT', to: '/about' },
+]
+
+export const primaryMenuItemsBottom = [
+    { label: 'SIGN OUT', to: '/signout' },
+]
 
 const prefixedKeys = getPrefixedKeys(NS)
 
