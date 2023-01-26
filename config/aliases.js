@@ -1,4 +1,5 @@
 const path = require('path')
+const { writeJsconfig } = require('./jsconfig')
 
 const initialAliases = {
     '@': path.resolve(__dirname, '../src'),
@@ -20,5 +21,9 @@ const aliases = [
     ...acc,
     [`@${it}`]: path.resolve(__dirname, '../src', it),
 }), initialAliases)
+
+writeJsconfig(
+    ['src', aliases],
+)
 
 module.exports = aliases

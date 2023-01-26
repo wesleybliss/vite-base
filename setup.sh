@@ -8,7 +8,7 @@ const usage = `
 USAGE ./${path.basename(process.argv[1])} <slug> <name>
 `
 
-const [slug, name] = process.argv.slice(2)
+let [slug, name] = process.argv.slice(2)
 
 const hasSlug = slug && slug.length > 0
 const hasName = name && name.length > 0
@@ -25,9 +25,10 @@ if (!hasSlug) {
 }
 
 if (!hasName) {
-    console.error('Project name is required')
-    console.info(usage)
-    process.exit(2)
+    const words = slug.includes('-') ? slug.split('-') : [slug]
+    name = words
+        .map(it => it.substring(0, 1).toUpperCase() + it.substring(1))
+        .join(' ')
 }
 
 const root = (...dirs) => path.resolve(__dirname, ...dirs)
@@ -52,6 +53,7 @@ const paths = [
     'src/components/App/App.jsx',
     'src/routes/Home/Home.jsx',
     'sample.env',
+    'public/manifest.json'
 ].map(it => root(it))
 
 paths.forEach(replace)
