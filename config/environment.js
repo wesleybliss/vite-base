@@ -26,9 +26,9 @@ export const getEnvironmentVars = () => {
     
 }
 
-export const loadEnvironment = () => {
+export const loadEnvironment = (existingEnv = null) => {
     
-    const env = getEnvironmentVars()
+    const env = existingEnv || getEnvironmentVars()
     
     // For Vite, these need to be the fully qualified process notation
     return Object.keys(env).reduce((acc, it) => ({

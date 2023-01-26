@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useWireValue } from '@forminator/react-wire'
 import * as store from '@store'
-import * as effects from '@effects'
+import * as hooks from '@hooks'
 import { useDrawer } from '@constants'
 
 import ProtectedRoute from '@components/ProtectedRoute'
@@ -54,8 +54,8 @@ const App = () => {
     
     const theme = useWireValue(store.theme)
     
-    effects.useDebugEffect()
-    effects.useThemeEffect()
+    hooks.useDebugEffect()
+    hooks.useThemeEffect()
     
     return (
         
@@ -65,8 +65,8 @@ const App = () => {
                 className="App scrollbar-minimal"
                 data-theme={theme === 'dark' ? 'business' : theme}>
                 
-                <div className="DEBUG-PAGE-LINE-V hidden w-px h-screen border border-red-500 absolute top-0 left-1/2" />
-                <div className="DEBUG-PAGE-LINE-H hidden w-screen h-px border border-red-500 absolute-centered" />
+                <div className="absolute top-0 hidden w-px h-screen border border-red-500 DEBUG-PAGE-LINE-V left-1/2" />
+                <div className="hidden w-screen h-px border border-red-500 DEBUG-PAGE-LINE-H absolute-centered" />
                 
                 <Navbar />
                 

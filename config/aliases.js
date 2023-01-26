@@ -10,7 +10,7 @@ const aliases = [
     'lib',
     'store',
     'actions',
-    'effects',
+    'hooks',
     'routes',
     'components',
     'constants',

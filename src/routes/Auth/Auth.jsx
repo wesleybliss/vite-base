@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom'
 import { useWireState, useWireValue } from '@forminator/react-wire'
 import * as store from '@store'
 import * as actions from '@actions'
-import * as effects from '@effects'
+import * as hooks from '@hooks'
 
 import AuthForm from '@components/AuthForm'
 
@@ -34,7 +34,7 @@ const Auth = () => {
     const submitLabel = useMemo(() => isSignUp ? 'SIGN UP' : 'SIGN IN', [isSignUp])
     
     // Automatically redirect home once we're signed in
-    effects.useConditionalRedirect(
+    hooks.useConditionalRedirect(
         isAuthenticated,
         () => isAuthenticated,
     )
@@ -43,7 +43,7 @@ const Auth = () => {
         
         <div className="Auth">
             
-            <div className="w-1/2 max-w-sm flex flex-col justify-center items-center absolute-centered">
+            <div className="flex flex-col items-center justify-center w-1/2 max-w-sm absolute-centered">
                 
                 <AuthForm
                     submitLabel={submitLabel}
