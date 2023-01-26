@@ -54,8 +54,8 @@ const App = () => {
     
     const theme = useWireValue(store.theme)
     
-    hooks.useDebugEffect()
-    hooks.useThemeEffect()
+    hooks.useDebug()
+    hooks.useTheme()
     
     return (
         

@@ -1,5 +1,5 @@
-export * from './theme'
-export * from './conditionalRedirect'
+export * from './useTheme'
+export * from './useConditionalRedirect'
 
 //
-export * from './debug'
+export * from './useDebug'

@@ -3,7 +3,7 @@ import * as store from '@store'
 import * as actions from '@actions'
 import * as constants from '@constants'
 
-export const useDebugEffect = () => {
+export const useDebug = () => {
     
     useEffect(() => {
         
