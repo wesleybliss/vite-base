@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import svgrPlugin from 'vite-plugin-svgr'
 import { getEnvironmentVars, loadEnvironment } from './config/environment'
 import aliases from './config/aliases'
 import injectProcessEnv from 'rollup-plugin-inject-process-env'
 
 const env = getEnvironmentVars()
+
+const ReactCompilerConfig = { /* ... */ }
 
 const developmentConfig = {
     server: {
@@ -32,7 +34,9 @@ const productionConfig = {
 export default defineConfig({
     define: loadEnvironment(env),
     plugins: [
-        react(),
+        // react(),
+        ['babel-plugin-react-compiler', ReactCompilerConfig],
+        tailwindcss(),
         svgrPlugin({
             svgrOptions: {
                 icon: true,
@@ -41,6 +45,7 @@ export default defineConfig({
         }),
     ],
     esbuild: {
+        // eslint-disable-next-line quotes
         jsxInject: `import React from 'react'`,
     },
     resolve: {

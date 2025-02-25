@@ -1,4 +1,3 @@
-
 import cn from 'classnames'
 
 import './Drawer.css'
@@ -6,12 +5,12 @@ import './Drawer.css'
 const Drawer = ({
     className,
     children,
-    open,
-    items,
-    header,
-    footer,
-    onItemRender,
-    toggleOpen,
+    open = false,
+    items = [],
+    header = null,
+    footer = null,
+    onItemRender = (item, index) => item,
+    toggleOpen = () => {},
 }) => {
     
     return (
@@ -56,15 +55,6 @@ const Drawer = ({
         
     )
     
-}
-
-Drawer.defaultProps = {
-    open: false,
-    items: [],
-    header: null,
-    footer: null,
-    onItemRender: (item, index) => item,
-    toggleOpen: () => {},
 }
 
 export default Drawer

@@ -1,5 +1,5 @@
-const path = require('path')
-const { writeJsconfig } = require('./jsconfig')
+import * as path from 'path'
+import { writeJsconfig } from './jsconfig'
 
 const initialAliases = {
     '@': path.resolve(__dirname, '../src'),
@@ -26,4 +26,4 @@ writeJsconfig(
     ['src', aliases],
 )
 
-module.exports = aliases
+export default aliases
