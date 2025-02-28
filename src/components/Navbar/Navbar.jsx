@@ -10,8 +10,6 @@ import Dropdown from '@components/Dropdown'
 import ThemeToggle from '@components/ThemeToggle'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
-import './Navbar.css'
-
 const Navbar = () => {
     
     const [drawerOpen, setDrawerOpen] = useWireState(store.drawerOpen)
@@ -27,11 +25,12 @@ const Navbar = () => {
     
     return (
         
-        <nav className="Navbar">
+        <nav className="Navbar w-full max-w-screen-2xl mx-auto flex items-center content-center pl-4 z-10">
             
             <div className="flex items-center content-center flex-grow h-full">
                 <Link
-                    className="branding"
+                    className="branding mr-3 my-2 px-1 py-1 opacity-60 hover:opacity-100 font-bold
+                        transition-opacity duration-500 ease-in-out"
                     to="/">
                     {/* eslint-disable-next-line no-restricted-globals */}
                     {document.title?.toUpperCase() ?? ''}

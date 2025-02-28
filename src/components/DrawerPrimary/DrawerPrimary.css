@@ -1,9 +1,0 @@
-@reference "@styles/index.css";
-
-.DrawerPrimary {
-    
-    .profile-header {
-        @apply mb-8 px-3 cursor-pointer;
-    }
-    
-}

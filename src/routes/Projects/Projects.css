@@ -1,7 +1,0 @@
-@reference "@styles/index.css";
-
-.Projects {
-    
-    @apply w-full flex flex-col;
-    
-}

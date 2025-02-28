@@ -19,7 +19,7 @@ const ProfileHeader = () => {
     
     return (
         
-        <div className="profile-header" onClick={onProfileClick}>
+        <div className="ProfileHeader mb-8 px-3 cursor-pointer" onClick={onProfileClick}>
             
             <div className="flex items-center content-center">
                 

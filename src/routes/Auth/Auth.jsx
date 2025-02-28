@@ -7,8 +7,6 @@ import * as hooks from '@hooks'
 
 import AuthForm from '@components/AuthForm'
 
-import './Auth.css'
-
 const Auth = () => {
     
     const location = useLocation()
@@ -41,7 +39,7 @@ const Auth = () => {
     
     return (
         
-        <div className="Auth">
+        <div className="Auth w-full flex flex-col justify-center items-center">
             
             <div className="flex flex-col items-center justify-center w-1/2 max-w-sm absolute-centered">
                 

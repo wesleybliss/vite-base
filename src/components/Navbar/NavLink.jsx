@@ -12,7 +12,9 @@ const NavLink = ({
         
         <Link
             className={cn(
-                'NavLink', {
+                'NavLink mr-3 my-2 px-1 py-1',
+                'opacity-60 hover:opacity-100 font-bold',
+                'transition-opacity duration-500 ease-in-out', {
                     [className]: className,
                 },
             )}

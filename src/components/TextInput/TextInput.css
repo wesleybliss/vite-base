@@ -1,7 +1,0 @@
-@reference "@styles/index.css";
-
-.TextInput {
-    
-    @apply input w-full rounded;
-    
-}

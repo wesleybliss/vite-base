@@ -13,8 +13,6 @@ import Profile from '@routes/Profile'
 import Projects from '@routes/Projects'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import './App.css'
-
 const protectRoute = (path, Component) => (
     <Route
         path={path}
@@ -27,7 +25,7 @@ const protectRoute = (path, Component) => (
 
 const Content = () => (
     
-    <article>
+    <article className="flex flex-col items-center mt-12 p-6 mx-auto text-center">
         
         <Routes>
             
@@ -57,7 +55,7 @@ const App = () => {
         <Router>
             
             <div
-                className="App scrollbar-minimal"
+                className="App relative flex flex-col w-full min-h-screen overflow-y-auto scrollbar-minimal"
                 data-theme={theme === 'dark' ? 'business' : theme}>
                 
                 <div className="absolute top-0 hidden w-px h-screen border border-red-500 DEBUG-PAGE-LINE-V left-1/2" />

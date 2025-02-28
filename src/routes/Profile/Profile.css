@@ -1,7 +1,0 @@
-@reference "@styles/index.css";
-
-.Profile {
-    
-    @apply w-full flex flex-col items-center;
-    
-}

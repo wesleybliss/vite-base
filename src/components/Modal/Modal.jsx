@@ -1,7 +1,5 @@
 import cn from 'classnames'
 
-import './Modal.css'
-
 const Modal = ({
     className,
     open,

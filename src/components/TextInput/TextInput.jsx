@@ -11,7 +11,7 @@ const TextInput = ({
     return (
         
         <input
-            className={cn('TextInput', { [className]: className })}
+            className={cn('TextInput input w-full rounded', { [className]: className })}
             type={type || 'text'}
             {...props} />
         

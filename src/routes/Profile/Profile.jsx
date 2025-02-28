@@ -5,8 +5,6 @@ import * as actions from '@actions'
 
 import { Link } from 'react-router-dom'
 
-import './Profile.css'
-
 const Profile = () => {
     
     const [user, setUser] = useWireState(store.user)
@@ -17,7 +15,9 @@ const Profile = () => {
     }
     
     useEffect(() => {
+        
         const fn = async () => {
+            
             try {
                 const res = await actions.fetchProfile()
                 
@@ -25,16 +25,18 @@ const Profile = () => {
             } catch (e) {
                 console.error('@todo', e)
             }
+            
         }
         
         fn()
+        
     }, [])
     
     if (!user) return null
     
     return (
         
-        <div className="Profile">
+        <div className="Profile w-full flex flex-col items-center">
             
             <h1>
                 {user.nickname ? `@${user.nickname}` : user.email}

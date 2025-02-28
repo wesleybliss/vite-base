@@ -9,8 +9,6 @@ import SimpleTable from '@components/SimpleTable'
 import { NewProjectDialog, DeleteProjectDialog } from '@components/Dialogs'
 import { FaTrash } from 'react-icons/fa'
 
-import './Projects.css'
-
 const Projects = () => {
     
     const [markedDeleteProject, setMarkedDeleteProject] = useState(null)
@@ -71,7 +69,7 @@ const Projects = () => {
     
     return (
         
-        <div className="Projects">
+        <div className="Projects w-full flex flex-col">
             
             <header className="w-full mb-5 py-2 flex justify-between">
                 <h4>Projects</h4>

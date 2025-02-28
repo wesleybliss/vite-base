@@ -16,7 +16,7 @@ const AccountLink = props => {
             {...props}>
             
             {(isAuthenticated && avatar)
-                ? <img className="avatar" src={avatar} />
+                ? <img className="avatar w-8 h-8" src={avatar} />
                 : <FaUserAlt />
             }
         

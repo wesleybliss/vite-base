@@ -4,8 +4,6 @@ import cn from 'classnames'
 
 import TextInput from '@components/TextInput'
 
-import './AuthForm.css'
-
 const AuthForm = ({
     className,
     submitLabel,
@@ -22,7 +20,7 @@ const AuthForm = ({
     
     return (
         
-        <div className={cn('AuthForm', { [className]: className })}>
+        <div className={cn('AuthForm w-full flex flex-col', { [className]: className })}>
             
             <form
                 className="w-full flex flex-col justify-center items-center"

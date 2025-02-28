@@ -1,8 +1,6 @@
 import { useMemo } from 'react'
 import cn from 'classnames'
 
-import './Dropdown.css'
-
 const Dropdown = ({
     className,
     labelClassName,
@@ -20,13 +18,13 @@ const Dropdown = ({
             
             {typeof label === 'string' ? (
                 <label
-                    className={cn('label', { [labelClassName]: labelClassName })}>
+                    className={cn('label btn m-1', { [labelClassName]: labelClassName })}>
                     tabIndex={0}
                     {label}
                 </label>
             ) : label}
             
-            <ul className="items dropdown-content menu"  tabIndex={0}>
+            <ul className="dropdown-content menu w-52 mt-4 p-2 bg-base-100 rounded-box shadow"  tabIndex={0}>
                 {items.map((it, i) => (
                     <li key={`dropdown-${id}-${i}`}>
                         <a>{it}</a>

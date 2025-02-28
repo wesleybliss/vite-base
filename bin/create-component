@@ -31,7 +31,6 @@ const readTemplate = name => {
     return fs.readFileSync(filePath, 'utf8')
 }
 
-const styleTemplate = readTemplate('Styles.css')
 const indexTemplate = readTemplate('index.js')
 const componentTemplateFor = type => readTemplate(`${type}.js`)
 
@@ -57,7 +56,6 @@ const createFromTemplate = async (type, name, dir) => {
     const indexFile = path.join(target, `index.js`)
     const componentFile = path.join(target, `${name}${ext}`)
     
-    const styleData = styleTemplate.replace(/%%NAME%%/g, name)
     const indexData = indexTemplate.replace(/%%NAME%%/g, name)
     const componentData = componentTemplateFor(Type).replace(/%%NAME%%/g, name)
     
@@ -79,7 +77,6 @@ const createFromTemplate = async (type, name, dir) => {
     if (!fs.existsSync(target))
         fs.mkdirSync(target)
     
-    fs.writeFileSync(styleFile, styleData, 'utf8')
     fs.writeFileSync(indexFile, indexData, 'utf8')
     fs.writeFileSync(componentFile, componentData, 'utf8')
     

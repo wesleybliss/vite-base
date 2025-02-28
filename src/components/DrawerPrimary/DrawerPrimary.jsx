@@ -2,12 +2,10 @@ import { useMemo } from 'react'
 import { useWireState } from '@forminator/react-wire'
 import * as store from '@store'
 import { primaryMenuItems } from '@constants'
+import { ProfileHeader, ThemeToggle } from './items'
 
 import Drawer from '@components/Drawer'
 import DrawerLink from './DrawerLink'
-import { ProfileHeader, ThemeToggle } from './items'
-
-import './DrawerPrimary.css'
 
 const DrawerPrimary = ({
     children,
