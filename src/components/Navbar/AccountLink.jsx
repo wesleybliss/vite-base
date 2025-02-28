@@ -19,7 +19,7 @@ const AccountLink = props => {
                 ? <img className="avatar" src={avatar} />
                 : <FaUserAlt />
             }
-            
+        
         </NavLink>
         
     )

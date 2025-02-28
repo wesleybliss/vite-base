@@ -23,10 +23,10 @@ const ThemeToggle = ({
                 className={cn(
                     'ThemeToggle', {
                         [className]: className,
-                    }
+                    },
                 )}
                 onClick={actions.toggleTheme} />
-            
+        
         </div>
         
     )

@@ -62,7 +62,7 @@ export default [
         },
         rules: {
             ...eslintJs.configs.recommended.rules,
-            
+            'react-compiler/react-compiler': 'error',
             'react/jsx-uses-react': 'error',
             'react/jsx-uses-vars': 'error',
             

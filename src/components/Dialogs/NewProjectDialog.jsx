@@ -38,7 +38,7 @@ const NewProjectDialog = ({
                 placeholder={`Project ${dayjs().format()}`}
                 autoComplete="off"
                 onChange={e => setInputNewName(e.target.value)} />
-            
+        
         </Modal>
         
     )

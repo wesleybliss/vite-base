@@ -40,9 +40,9 @@ const Modal = ({
                         </label>
                     )}
                 </div>
-                
-            </div>
             
+            </div>
+        
         </div>
         
     )

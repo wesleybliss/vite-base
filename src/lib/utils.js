@@ -22,6 +22,7 @@ export const randomInt = (from, to) =>
  */
 export const isPrimitive = val => {
     const type = typeof val
+    
     if (Array.isArray(val)) return false
     if (type === 'object') return val === null
     return type !== 'function'
@@ -30,12 +31,14 @@ export const isPrimitive = val => {
 export const snippet = text => {
     const pre = text.substring(0, 4)
     const post = text.substring(text.length - 4)
+    
     return `${pre}...${post}`
 }
 
 export const retryAsync = async (fn, retries = 3, timeoutMs = 1000) => {
     try {
         const value = await fn()
+        
         return value
     } catch (e) {
         if (retries <= 0)
@@ -55,14 +58,16 @@ export const retryAsync = async (fn, retries = 3, timeoutMs = 1000) => {
  */
 export function debounce(fn, delayMillis) {
     let timer = null
+    
     return (...args) => {
         const next = () => fn.apply(this, args)
+        
         clearTimeout(timer)
         timer = setTimeout(next, delayMillis)
     }
 }
 
-export const copyToClipboard = async (data) => {
+export const copyToClipboard = async data => {
     try {
         await navigator.clipboard.writeText(data)
     } catch (e) {

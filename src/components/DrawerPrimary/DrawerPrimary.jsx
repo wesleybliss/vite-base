@@ -5,8 +5,7 @@ import { primaryMenuItems } from '@constants'
 
 import Drawer from '@components/Drawer'
 import DrawerLink from './DrawerLink'
-import { ProfileHeader, AutoRefreshTimelineToggle, ThemeToggle } from './items'
-import { Link } from 'react-router-dom'
+import { ProfileHeader, ThemeToggle } from './items'
 
 import './DrawerPrimary.css'
 
@@ -40,7 +39,7 @@ const DrawerPrimary = ({
             toggleOpen={() => setDrawerOpen(!drawerOpen)}>
             
             {children}
-            
+        
         </Drawer>
         
     )

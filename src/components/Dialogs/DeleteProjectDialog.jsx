@@ -1,10 +1,7 @@
-import { useState } from 'react'
 import { useWireState } from '@forminator/react-wire'
 import * as store from '@store'
-import dayjs from 'dayjs'
 
 import Modal from '@components/Modal'
-import TextInput from '@components/TextInput'
 
 const DeleteProjectDialog = ({
     project,
@@ -28,7 +25,7 @@ const DeleteProjectDialog = ({
             <p className="">
                 Are you sure you want to delete the project {project?.name}?
             </p>
-            
+        
         </Modal>
         
     )

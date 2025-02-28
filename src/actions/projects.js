@@ -33,8 +33,7 @@ export const deleteProject = async id => {
     if (!res.error)
         store.projects.setValue(
             store.projects.getValue()
-                .filter(it => it.id !== id)
-        )
+                .filter(it => it.id !== id))
     
     return res
     

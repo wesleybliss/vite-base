@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { useWireState, useWireValue } from '@forminator/react-wire'
+import { useWireState } from '@forminator/react-wire'
 import * as store from '@store'
-import { primaryMenuItems, useDrawer } from '@constants'
+import { drawerEnabled, primaryMenuItems } from '@constants'
 
 import { Link } from 'react-router-dom'
 import NavLink from './NavLink'
@@ -12,11 +12,8 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 
 import './Navbar.css'
 
-const Navbar = ({
+const Navbar = () => {
     
-}) => {
-    
-    const isAuthenticated = useWireValue(store.isAuthenticated)
     const [drawerOpen, setDrawerOpen] = useWireState(store.drawerOpen)
     
     const onDrawerToggleClick = e => {
@@ -36,6 +33,7 @@ const Navbar = ({
                 <Link
                     className="branding"
                     to="/">
+                    {/* eslint-disable-next-line no-restricted-globals */}
                     {document.title?.toUpperCase() ?? ''}
                 </Link>
             </div>
@@ -46,7 +44,7 @@ const Navbar = ({
                     <NavLink key={to} to={to}>{label}</NavLink>
                 ))}
                 
-                {useDrawer ? <AccountLink /> : (
+                {drawerEnabled ? <AccountLink /> : (
                     <Dropdown
                         className="dropdown-end"
                         labelClassName=""
@@ -55,20 +53,20 @@ const Navbar = ({
                             ...primaryMenuItems.map(({ label, to }) => (
                                 <Link key={to} to={to}>{label}</Link>
                             )),
-                            <Link to="/signout">SIGN OUT</Link>
+                            <Link to="/signout">SIGN OUT</Link>,
                         ]} />
                 )}
                 
-                {useDrawer && (
+                {drawerEnabled && (
                     <NavLink to={'/'} onClick={onDrawerToggleClick}>
                         <DrawerToggleIcon className="text-2xl" />
                     </NavLink>
                 )}
                 
-                {!useDrawer && <ThemeToggle />}
-                
-            </div>
+                {!drawerEnabled && <ThemeToggle />}
             
+            </div>
+        
         </nav>
         
     )

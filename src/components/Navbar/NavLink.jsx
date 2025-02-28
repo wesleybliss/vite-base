@@ -14,7 +14,7 @@ const NavLink = ({
             className={cn(
                 'NavLink', {
                     [className]: className,
-                }
+                },
             )}
             {...props}>
             {children}

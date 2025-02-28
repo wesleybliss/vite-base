@@ -2,7 +2,7 @@ import * as rwp from 'react-wire-persisted'
 
 const { key, getPrefixedKeys } = rwp.utils
 
-export const NS = `react-base`
+export const NS = 'react-base'
 
 //
 
@@ -13,7 +13,7 @@ key('user')
 //
 
 export const themes = ['light', 'dark']
-export const useDrawer = true
+export const drawerEnabled = true
 
 export const primaryMenuItems = [
     { label: 'HOME', to: '/' },

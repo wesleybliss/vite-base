@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useWireState } from '@forminator/react-wire'
 import * as store from '@store'
 import * as actions from '@actions'
@@ -20,11 +20,13 @@ const Profile = () => {
         const fn = async () => {
             try {
                 const res = await actions.fetchProfile()
+                
                 console.log('profile', res)
             } catch (e) {
                 console.error('@todo', e)
             }
         }
+        
         fn()
     }, [])
     
@@ -42,7 +44,16 @@ const Profile = () => {
                 <h4>{user.email}</h4>
             )}
             
-            {/* <div><pre><code>{JSON.stringify({ ...user, token: user.token.substring(0, 5) }, null, 4)}</code></pre></div> */}
+            {/* <div>
+                <pre>
+                    <code>
+                        {JSON.stringify({
+                            ...user,
+                            token: user.token.substring(0, 5),
+                        }, null, 4)}
+                    </code>
+                </pre>
+            </div> */}
             
             <div className="mt-20">
                 <button className="btn btn-danger" onClick={onLogoutClick}>
@@ -55,7 +66,7 @@ const Profile = () => {
                     Invite a friend
                 </Link>
             </div>
-            
+        
         </div>
         
     )

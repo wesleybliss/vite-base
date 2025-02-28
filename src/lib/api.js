@@ -31,6 +31,7 @@ const getError = async res => {
     
     try {
         const json = await res.json()
+        
         error = json.error || error
     } catch (e) {
         console.warn('getError', e)

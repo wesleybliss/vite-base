@@ -1,6 +1,6 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { useLocation, Link } from 'react-router-dom'
-import { useWireState, useWireValue } from '@forminator/react-wire'
+import { useWireValue } from '@forminator/react-wire'
 import * as store from '@store'
 import * as actions from '@actions'
 import * as hooks from '@hooks'
@@ -64,9 +64,9 @@ const Auth = () => {
                         {error}
                     </div>
                 )}
-                
-            </div>
             
+            </div>
+        
         </div>
         
     )

@@ -31,9 +31,9 @@ const AutoRefreshTimelineToggle = ({
                 <span>Auto refresh timeline</span>
                 
                 <ToggleAutoRefreshTimelineIcon className="text-2xl" />
-                
-            </div>
             
+            </div>
+        
         </div>
         
     )

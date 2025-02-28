@@ -26,9 +26,9 @@ const ThemeToggle = ({
                 <span>{themeName} theme</span>
                 
                 <ThemeIcon className="text-xl" />
-                
-            </div>
             
+            </div>
+        
         </div>
         
     )

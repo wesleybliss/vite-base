@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-
 import './Home.css'
 
 const Home = () => {
@@ -22,7 +20,7 @@ const Home = () => {
                     VITE + REACT + TAILWIND CSS BOILERPLATE
                 </p>
             </div>
-            
+        
         </div>
         
     )

@@ -3,7 +3,6 @@ import { useWire, useWireValue } from '@forminator/react-wire'
 import * as store from '@store'
 import * as actions from '@actions'
 import { formatDate } from '@lib/utils'
-import cn from 'classnames'
 
 import Button from '@components/Button'
 import SimpleTable from '@components/SimpleTable'
@@ -45,7 +44,9 @@ const Projects = () => {
     }
     
     const projectsWithActions = useMemo(() => {
+        
         if (!projects) return []
+        
         return projects?.map(it => ({
             ...it,
             actions: (
@@ -59,9 +60,10 @@ const Projects = () => {
                         <FaTrash className="text-red-700" />
                     </Button>
                 </div>
-            )
+            ),
         }))
-    })
+        
+    }, [projects])
     
     useEffect(() => {
         actions.fetchProjects()
@@ -85,11 +87,11 @@ const Projects = () => {
             <SimpleTable
                 className="table-auto w-full text-left"
                 keys={[
-                    { slug: 'id', label: 'ID', },
-                    { slug: 'name', label: 'Name', },
-                    { slug: 'created_at', label: 'Created', },
-                    { slug: 'updated_at', label: 'Updated', },
-                    { slug: 'actions', label: '', },
+                    { slug: 'id', label: 'ID' },
+                    { slug: 'name', label: 'Name' },
+                    { slug: 'created_at', label: 'Created' },
+                    { slug: 'updated_at', label: 'Updated' },
+                    { slug: 'actions', label: '' },
                 ]}
                 items={projectsWithActions}
                 transforms={{
@@ -99,7 +101,7 @@ const Projects = () => {
             
             <NewProjectDialog onAction={createProject} />
             <DeleteProjectDialog project={markedDeleteProject} onAction={deleteProject} />
-            
+        
         </div>
         
     )

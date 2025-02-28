@@ -9,7 +9,7 @@ const Drawer = ({
     items = [],
     header = null,
     footer = null,
-    onItemRender = (item, index) => item,
+    onItemRender = (item/* , index */) => item,
     toggleOpen = () => {},
 }) => {
     
@@ -46,11 +46,11 @@ const Drawer = ({
                     </ul>
                     
                     {footer}
-                    
-                </div>
                 
-            </div>
+                </div>
             
+            </div>
+        
         </div>
         
     )

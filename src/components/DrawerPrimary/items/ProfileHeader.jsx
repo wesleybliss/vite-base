@@ -34,9 +34,9 @@ const ProfileHeader = () => {
                         <span className="text-xs">{user.email}</span>
                     )}
                 </div>
-                
-            </div>
             
+            </div>
+        
         </div>
         
     )

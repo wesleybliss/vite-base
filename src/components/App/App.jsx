@@ -1,8 +1,7 @@
-import { useMemo } from 'react'
 import { useWireValue } from '@forminator/react-wire'
 import * as store from '@store'
 import * as hooks from '@hooks'
-import { useDrawer } from '@constants'
+import { drawerEnabled } from '@constants'
 
 import ProtectedRoute from '@components/ProtectedRoute'
 import Navbar from '@components/Navbar'
@@ -12,23 +11,19 @@ import Auth from '@routes/Auth'
 import SignOut from '@routes/SignOut'
 import Profile from '@routes/Profile'
 import Projects from '@routes/Projects'
-import * as dialogs from '@components/Dialogs'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './App.css'
 
-const protectRoute = (path, Component) => {
-    return (
-        <Route
-            path={path}
-            element={
-                <ProtectedRoute>
-                    <Component />
-                </ProtectedRoute>
-            }
-        />
-    )
-}
+const protectRoute = (path, Component) => (
+    <Route
+        path={path}
+        element={
+            <ProtectedRoute>
+                <Component />
+            </ProtectedRoute>
+        } />
+)
 
 const Content = () => (
     
@@ -43,9 +38,9 @@ const Content = () => (
             
             {protectRoute('/profile', Profile)}
             {protectRoute('/projects', Projects)}
-            
-        </Routes>
         
+        </Routes>
+    
     </article>
     
 )
@@ -70,7 +65,7 @@ const App = () => {
                 
                 <Navbar />
                 
-                {useDrawer ? (
+                {drawerEnabled ? (
                     <DrawerPrimary>
                         <Content />
                     </DrawerPrimary>
@@ -82,9 +77,9 @@ const App = () => {
                     const Component = dialogs[it]
                     return <Component key={`dialog-${it}`} />
                 })} */}
-                
-            </div>
             
+            </div>
+        
         </Router>
         
     )

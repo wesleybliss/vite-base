@@ -41,7 +41,7 @@ const SimpleTable = ({
                     </tr>
                 ))}
             </tbody>
-            
+        
         </table>
         
     )

@@ -7,7 +7,9 @@ import injectProcessEnv from 'rollup-plugin-inject-process-env'
 
 const env = getEnvironmentVars()
 
-const ReactCompilerConfig = { /* ... */ }
+const ReactCompilerConfig = {
+    target: '19', // '17' | '18' | '19'
+}
 
 const developmentConfig = {
     server: {
@@ -34,7 +36,6 @@ const productionConfig = {
 export default defineConfig({
     define: loadEnvironment(env),
     plugins: [
-        // react(),
         ['babel-plugin-react-compiler', ReactCompilerConfig],
         tailwindcss(),
         svgrPlugin({

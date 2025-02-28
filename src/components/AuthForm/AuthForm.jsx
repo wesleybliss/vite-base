@@ -47,9 +47,9 @@ const AuthForm = ({
                 <button className="btn w-full mt-4 rounded" type="submit">
                     {submitLabel}
                 </button>
-                
-            </form>
             
+            </form>
+        
         </div>
         
     )
