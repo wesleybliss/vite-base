@@ -27,7 +27,7 @@ const Dropdown = ({
             <ul className="dropdown-content menu w-52 mt-4 p-2 bg-base-100 rounded-box shadow"  tabIndex={0}>
                 {items.map((it, i) => (
                     <li key={`dropdown-${id}-${i}`}>
-                        <a>{it}</a>
+                        {it}
                     </li>
                 ))}
             </ul>

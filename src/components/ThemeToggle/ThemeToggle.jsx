@@ -21,7 +21,7 @@ const ThemeToggle = ({
                 className={cn(
                     'ThemeToggle',
                     'mr-3 my-5 px-1 py-1',
-                    'text-3xl opacity-60 hover:opacity-100 cursor-pointer',
+                    'text-xl opacity-60 hover:opacity-100 cursor-pointer',
                     'transition-opacity duration-500 ease-in-out', {
                         [className]: className,
                     },

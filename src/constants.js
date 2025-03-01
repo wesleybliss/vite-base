@@ -13,7 +13,7 @@ key('user')
 //
 
 export const themes = ['light', 'dark']
-export const drawerEnabled = true
+export const drawerEnabled = false
 
 export const primaryMenuItems = [
     { label: 'HOME', to: '/' },
