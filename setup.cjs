@@ -70,4 +70,4 @@ if (fs.existsSync(root('.git'))) {
 }
 
 console.info('- Deleting this script')
-fs.unlinkSync(root('setup.sh'))
+fs.unlinkSync(root('setup.cjs'))
