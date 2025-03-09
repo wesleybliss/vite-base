@@ -9,6 +9,7 @@ import DrawerPrimary from '@components/DrawerPrimary'
 import Home from '@routes/Home'
 import Auth from '@routes/Auth'
 import SignOut from '@routes/SignOut'
+import About from '@routes/About'
 import Profile from '@routes/Profile'
 import Projects from '@routes/Projects'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -30,6 +31,7 @@ const Content = () => (
         <Routes>
             
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
             <Route exact path="/signup" element={<Auth />} />
             <Route exact path="/signin" element={<Auth />} />
             <Route exact path="/signout" element={<SignOut />} />
